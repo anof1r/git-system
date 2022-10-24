@@ -7,10 +7,10 @@ function App() {
 
   return (
     <BrowserRouter>
-        <Routes>
-              <Route exact path="/" element={<UserSearch />} />
-              <Route path="/profile" element={<UserPage />} />
-        </Routes>
+      <Routes>
+        <Route exact path="/" element={<UserSearch />} />
+        <Route path="/profile" element={<UserPage />} />
+      </Routes>
     </BrowserRouter>
   );
 }

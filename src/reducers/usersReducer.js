@@ -1,10 +1,11 @@
 const SET_USER = "SET_USER"
-const SET_IS_FETCHING = "IS_FETCHING"
+const SET_IS_FETCHED = "IS_FETCHED"
 const SET_FAIL = "SET_FAIL"
+
 const initialState = {
     username: "",
     name: "",
-    isFetching: true,
+    isFetched: false,
     isFail: false,
     avatar_url: ""
 }
@@ -16,14 +17,17 @@ export default function usersReducer(state = initialState, action) {
                 ...state,
                 username: action.payload.login,
                 name: action.payload.name,
-                isFetching: false,
                 avatar_url: action.payload.avatar_url,
-                isFail: false
             }
         case SET_FAIL:
             return {
                 ...state,
                 isFail: action.payload
+            }
+        case SET_IS_FETCHED:
+            return {
+                ...state,
+                isFetched: action.payload
             }
         default:
             return state
@@ -31,5 +35,5 @@ export default function usersReducer(state = initialState, action) {
 }
 
 export const setUser = (user) => ({ type: SET_USER, payload: user })
-export const setIsFetching = (bool) => ({ type: SET_IS_FETCHING, payload: bool })
+export const setIsFetched = (bool) => ({ type: SET_IS_FETCHED, payload: bool })
 export const setFail = (bool) => ({ type: SET_FAIL, payload: bool })
