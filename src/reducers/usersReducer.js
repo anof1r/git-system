@@ -5,7 +5,8 @@ const initialState = {
     username: "",
     name: "",
     isFetching: true,
-    isFail: false
+    isFail: false,
+    avatar_url: ""
 }
 
 export default function usersReducer(state = initialState, action) {
@@ -16,6 +17,7 @@ export default function usersReducer(state = initialState, action) {
                 username: action.payload.login,
                 name: action.payload.name,
                 isFetching: false,
+                avatar_url: action.payload.avatar_url,
                 isFail: false
             }
         case SET_FAIL:
