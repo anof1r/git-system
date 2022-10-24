@@ -41,7 +41,6 @@ function UserSearch() {
                     id="button-addon3"
                     onClick={() => redirectToProfile()}>Open user profile</button>
                 {isFail && <span>Fail</span>}
-                {fetched && <span>Fetching</span>}
             </div>
         </div>
     );
