@@ -18,7 +18,6 @@ function RepoCommits() {
         dispatch(getCommits(user.username, location.state))
     }, [dispatch, location.state, user])
 
-    console.log(location)
     return (
         <>
             <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l" onClick={() => navigate(-1)}>
