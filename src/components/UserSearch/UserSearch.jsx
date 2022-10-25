@@ -19,7 +19,7 @@ function UserSearch() {
 
     useEffect(() => {
         if (fetched && !isFail) {
-            navigate('/profile', { state: { username: userName } })
+            navigate('/profile')
         }
     }, [isFail, fetched, navigate, userName, dispatch])
 
@@ -36,7 +36,7 @@ function UserSearch() {
                         onChange={(e) => setUserName(e.target.value)} />
                 </div>
                 <button
-                    className="btn px-8 py-2 flex border-2 border-blue-600 text-blue-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                    className="btn mx-auto px-8 py-2 flex border-2 border-blue-600 text-blue-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                     type="button"
                     id="button-addon3"
                     onClick={() => redirectToProfile()}>Open user profile</button>
