@@ -3,16 +3,19 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom'
 import { getCommits } from '../../actions/commits';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 import RepoRow from "./RepoRow"
+
 function RepoCommits() {
     const dispatch = useDispatch()
-    const user = useSelector(state => state.user.username)
+    //const user = useSelector(state => state.user.username)
     const navigate = useNavigate()
     const commits = useSelector(state => state.commits.items)
     const location = useLocation();
+    const [user, setUser] = useLocalStorage("user", {})
 
     useEffect(() => {
-        dispatch(getCommits(user, location.state))
+        dispatch(getCommits(user.username, location.state))
     }, [dispatch, location.state, user])
 
     console.log(location)

@@ -4,18 +4,24 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getUser } from '../../actions/user'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react';
-
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 function UserSearch() {
 
     const [userName, setUserName] = useState('')
     const dispatch = useDispatch()
     const fetched = useSelector(state => state.user.isFetched)
     const isFail = useSelector(state => state.user.isFail)
+    const userState = useSelector(state => state.user)
     const navigate = useNavigate();
+    const [user, setUser] = useLocalStorage("user", {})
 
     const redirectToProfile = () => {
         dispatch(getUser(userName))
     }
+
+    useEffect(() => {
+        setUser(userState)
+    }, [userState, setUser])
 
     useEffect(() => {
         if (fetched && !isFail) {
