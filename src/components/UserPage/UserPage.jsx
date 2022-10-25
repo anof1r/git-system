@@ -27,7 +27,7 @@ function UserPage() {
                 isFetched === true
                     ?
                     <>
-                        <img src={img} alt="" className='mx-auto' />
+                        <img src={img} alt="" className='mx-auto rounded-full' />
                         <h1 className="text-3xl font-bold underline text-center">
                             {user} Repositories :
                         </h1>

@@ -11,6 +11,9 @@ export const getUser = (userName) => {
             dispatch(setIsFetched(true))
         } catch (e) {
             dispatch(setFail(true))
+            setTimeout(() => {
+                dispatch(setFail(false))
+              }, "3000")
         }
     }
 }
