@@ -1,7 +1,5 @@
 import axios from "axios";
 import { setRepos, setIsFetched } from "../reducers/reposReducer";
-import { setFail } from "../reducers/usersReducer";
-
 
 export const getRepos = (userName) => {
     return async (dispatch) => {
@@ -11,7 +9,7 @@ export const getRepos = (userName) => {
             dispatch(setRepos(responce.data))
             dispatch(setIsFetched(true))
         } catch (e) {
-            dispatch(setFail(true))
+            dispatch(setIsFetched(false))
         }
     }
 }

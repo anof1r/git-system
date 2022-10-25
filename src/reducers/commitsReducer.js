@@ -1,4 +1,4 @@
-const SET_REPOS = "SET_REPOS"
+const SET_COMMITS = "SET_COMMITS"
 const SET_IS_FETCHED = "IS_FETCHED"
 
 const initialState = {
@@ -8,7 +8,7 @@ const initialState = {
 
 export default function reposReducer(state = initialState, action) {
     switch (action.type) {
-        case SET_REPOS:
+        case SET_COMMITS:
             return {
                 ...state,
                 items: action.payload,
@@ -24,5 +24,5 @@ export default function reposReducer(state = initialState, action) {
     }
 }
 
-export const setRepos = (repos) => ({ type: SET_REPOS, payload: repos })
+export const setCommits = (commits) => ({ type: SET_COMMITS, payload: commits })
 export const setIsFetched = (bool) => ({ type: SET_IS_FETCHED, payload: bool })
